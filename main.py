@@ -156,7 +156,8 @@ async def aarohiai(client: Client, message: Message):
        bot_id = getme.id                             
        if message.reply_to_message.from_user.id == bot_id: 
            if not is_aarohi:                   
-               await bot.send_chat_action(message.chat.id, ChatAction.TYPING)               K = []  
+               await bot.send_chat_action(message.chat.id, ChatAction.TYPING)        
+               K = []  
                is_chat = chatai.find({"word": message.text})
                k = chatai.find_one({"word": message.text})      
                if k:       
@@ -198,7 +199,8 @@ async def aarohistickerai(client: Client, message: Message):
        aarohi = Aarohidb["AarohiDb"]["Aarohi"] 
        is_aarohi = aarohi.find_one({"chat_id": message.chat.id})
        if not is_aarohi:
-           await bot.send_chat_action(message.chat.id, ChatAction.TYPING)           K = []  
+           await bot.send_chat_action(message.chat.id, ChatAction.TYPING)    
+           K = []  
            is_chat = chatai.find({"word": message.sticker.file_unique_id})      
            k = chatai.find_one({"word": message.text})      
            if k:           
@@ -220,7 +222,8 @@ async def aarohistickerai(client: Client, message: Message):
        bot_id = getme.id
        if message.reply_to_message.from_user.id == bot_id: 
            if not is_aarohi:                    
-               await bot.send_chat_action(message.chat.id, ChatAction.TYPING)               K = []  
+               await bot.send_chat_action(message.chat.id, ChatAction.TYPING)       
+               K = []  
                is_chat = chatai.find({"word": message.text})
                k = chatai.find_one({"word": message.text})      
                if k:           
@@ -258,7 +261,8 @@ async def aarohiprivate(client: Client, message: Message):
    chatdb = MongoClient(MONGO_URL)
    chatai = chatdb["Word"]["WordDb"]
    if not message.reply_to_message: 
-       await bot.send_chat_action(message.chat.id, ChatAction.TYPING)       K = []  
+       await bot.send_chat_action(message.chat.id, ChatAction.TYPING)
+       K = []  
        is_chat = chatai.find({"word": message.text})                 
        for x in is_chat:
            K.append(x['text'])
@@ -273,7 +277,8 @@ async def aarohiprivate(client: Client, message: Message):
        getme = await bot.get_me()
        bot_id = getme.id       
        if message.reply_to_message.from_user.id == bot_id:                    
-           await bot.send_chat_action(message.chat.id, ChatAction.TYPING)           K = []  
+           await bot.send_chat_action(message.chat.id, ChatAction.TYPING)    
+           K = []  
            is_chat = chatai.find({"word": message.text})                 
            for x in is_chat:
                K.append(x['text'])
@@ -299,7 +304,8 @@ async def aarohiprivatesticker(client: Client, message: Message):
    chatdb = MongoClient(MONGO_URL)
    chatai = chatdb["Word"]["WordDb"] 
    if not message.reply_to_message:
-       await bot.send_chat_action(message.chat.id, ChatAction.TYPING)       K = []  
+       await bot.send_chat_action(message.chat.id, ChatAction.TYPING)    
+       K = []  
        is_chat = chatai.find({"word": message.sticker.file_unique_id})                 
        for x in is_chat:
            K.append(x['text'])
@@ -314,7 +320,8 @@ async def aarohiprivatesticker(client: Client, message: Message):
        getme = await bot.get_me()
        bot_id = getme.id       
        if message.reply_to_message.from_user.id == bot_id:                    
-           await bot.send_chat_action(message.chat.id, ChatAction.TYPING)           K = []  
+           await bot.send_chat_action(message.chat.id, ChatAction.TYPING)  
+           K = []  
            is_chat = chatai.find({"word": message.sticker.file_unique_id})                 
            for x in is_chat:
                K.append(x['text'])
