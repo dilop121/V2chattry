@@ -1,6 +1,6 @@
 from pyrogram import Client, filters
 from pyrogram.types import *
-from pyrogram.types import ChatAction
+from pyrogram.types import ChatActionType
 from pymongo import MongoClient
 import requests
 import random
