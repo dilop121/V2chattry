@@ -21,10 +21,12 @@ BOT_NAME = os.environ.get("BOT_NAME")
 ADMINS = os.environ.get("ADMINS")
 
 bot = Client(
+    "AarohiChatbot",
     api_id=API_ID,
     api_hash=API_HASH,
     bot_token=BOT_TOKEN
 )
+
 
 
 
