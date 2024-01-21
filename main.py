@@ -133,7 +133,8 @@ async def aarohiai(client: Client, message: Message):
        aarohi = Aarohidb["AarohiDb"]["Aarohi"] 
        is_aarohi = aarohi.find_one({"chat_id": message.chat.id})
        if not is_aarohi:
-           await bot.send_chat_action(message.chat.id, ChatAction.TYPING)           K = []  
+           await bot.send_chat_action(message.chat.id, ChatAction.TYPING)         
+           K = []  
            is_chat = chatai.find({"word": message.text})  
            k = chatai.find_one({"word": message.text})      
            if k:               
