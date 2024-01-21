@@ -1,4 +1,5 @@
-from pyrogram import Client, filters
+from pyrogram import Client
+from pyrogram import filters
 from pyrogram.types import *
 from pymongo import MongoClient
 import requests
@@ -20,20 +21,17 @@ BOT_NAME = os.environ.get("BOT_NAME")
 ADMINS = os.environ.get("ADMINS")
 
 bot = Client(
-    "AarohiChatbot" ,
-    api_id = API_ID,
-    api_hash = API_HASH ,
-    bot_token = BOT_TOKEN
+    api_id=API_ID,
+    api_hash=API_HASH,
+    bot_token=BOT_TOKEN
 )
 
 
+
 async def is_admins(chat_id: int):
-    return [
-        member.user.id
-        async for member in bot.iter_chat_members(
-            chat_id, filter="administrators"
-        )
-    ]
+    admins = await bot.get_chat_members(chat_id, filter="administrators")
+    return [admin.user.id for admin in admins]
+
 
 
 EMOJIOS = [ 
@@ -45,7 +43,7 @@ START = f"""
 **๏ Hie Baby❣️ ๏**
 """
 
-@bot.on_message(filters.command(["start", "aistart", f"start@{BOT_USERNAME}"]))
+@bot.on_message(filters.command(["start", "aistart"]))
 async def restart(client, m: Message):
     accha = await m.reply_text(
                 text = random.choice(EMOJIOS),
@@ -333,4 +331,4 @@ async def aarohiprivatesticker(client: Client, message: Message):
                await message.reply_sticker(f"{hey}")
 
 print(f"❣️𝗔𝗔𝗥𝗢𝗛𝗜 𝗖𝗛𝗔𝗧𝗕𝗢𝗧💝𝗜𝗦 𝗦𝗧𝗔𝗥𝗧𝗘𝗗❣️ ")      
-bot.run()
+bot.start()
